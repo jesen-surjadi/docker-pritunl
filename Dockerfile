@@ -16,6 +16,7 @@ RUN locale-gen en_US en_US.UTF-8 \
     && apt-get -y -q autoclean \
     && apt-get -y -q autoremove \
     && rm -rf /tmp/*
+    && mkdir -p /etc/pritunl
 
 ADD start-pritunl /bin/start-pritunl
 
