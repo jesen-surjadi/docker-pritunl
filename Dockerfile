@@ -4,6 +4,7 @@ MAINTAINER Christian Winther <jippignu@gmail.com>
 RUN locale-gen en_US en_US.UTF-8 \
     && dpkg-reconfigure locales \
     && ln -sf /usr/share/zoneinfo/UTC /etc/localtime \
+    && mkdir /etc/pritunl
     && echo 'deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse' > /etc/apt/sources.list.d/mongodb-org-3.2.list \
     && echo 'deb http://repo.pritunl.com/stable/apt xenial main' > /etc/apt/sources.list.d/pritunl.list \
     && apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv 42F3E95A2C4F08279C4960ADD68FA50FEA312927 \
@@ -15,9 +16,8 @@ RUN locale-gen en_US en_US.UTF-8 \
     && apt-get clean \
     && apt-get -y -q autoclean \
     && apt-get -y -q autoremove \
-    && rm -rf /tmp/* \
-    && mkdir -p /etc/pritunl
-
+    && rm -rf /tmp/*
+    
 ADD start-pritunl /bin/start-pritunl
 
 EXPOSE 9700
