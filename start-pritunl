@@ -35,12 +35,12 @@ fi
 
 # allow updating
 if [ -n "$PRITUNL_UPDATE" ]; then
-    && apt-get update -q \
-    && apt-get upgrade -y -q \
-    && apt-get clean \
-    && apt-get -y -q autoclean \
-    && apt-get -y -q autoremove \
-    && rm -rf /tmp/*
+    apt-get update -q \
+    apt-get upgrade -y -q \
+    apt-get clean \
+    apt-get -y -q autoclean \
+    apt-get -y -q autoremove \
+    rm -rf /tmp/*
 fi
 
 ## start a local mongodb instance if no mongodb specified through env
