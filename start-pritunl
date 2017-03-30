@@ -65,6 +65,4 @@ if [ -z "$PRITUNL_DONT_WRITE_CONFIG" ]; then
     }
 EOF
 
-fi
-
 exec /usr/bin/pritunl start -c /etc/pritunl/pritunl.conf
